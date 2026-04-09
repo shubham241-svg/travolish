@@ -91,7 +91,7 @@ export default function Navbar() {
                     openAuthModal()
                   }
                 }}
-                className="hidden md:flex px-4 py-2.5 text-sm font-semibold rounded-full hover:bg-gray-50 transition-colors"
+                className="hidden sm:flex px-4 py-2.5 text-sm font-semibold rounded-full hover:bg-gray-50 transition-colors"
               >
                 Travolish your home
               </Link>
@@ -141,14 +141,23 @@ export default function Navbar() {
                           <Heart size={16} className="text-gray-600" />
                           Wishlists
                         </Link>
-                        {profile?.role === 'host' && (
+                        {profile?.role !== 'host' ? (
                           <Link
                             to="/host/onboarding"
                             onClick={() => setIsMenuOpen(false)}
-                            className="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-50 transition-colors"
+                            className="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-50 transition-colors font-semibold"
                           >
-                            <Plus size={16} className="text-gray-600" />
-                            List your property
+                            <Plus size={16} className="text-brand" />
+                            Travolish your home
+                          </Link>
+                        ) : (
+                          <Link
+                            to="/host/onboarding"
+                            onClick={() => setIsMenuOpen(false)}
+                            className="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-50 transition-colors font-semibold"
+                          >
+                            <Plus size={16} className="text-brand" />
+                            Switch to hosting
                           </Link>
                         )}
                         <hr className="my-1 border-gray-100" />
