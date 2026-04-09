@@ -82,7 +82,7 @@ export default function Navbar() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-1 flex-shrink-0">
-            {(!profile || profile.role === 'host') && (
+            {(!profile || profile.role !== 'host') && (
               <Link
                 to={user ? '/host/onboarding' : '#'}
                 onClick={(e) => {
@@ -91,7 +91,7 @@ export default function Navbar() {
                     openAuthModal()
                   }
                 }}
-                className="hidden lg:flex px-4 py-2.5 text-sm font-semibold rounded-full hover:bg-gray-50 transition-colors"
+                className="hidden md:flex px-4 py-2.5 text-sm font-semibold rounded-full hover:bg-gray-50 transition-colors"
               >
                 Travolish your home
               </Link>
